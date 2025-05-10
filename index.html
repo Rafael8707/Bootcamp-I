@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Portfólio de Desenvolvedor</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #00070a;  /* Dark gradient base */
+    background: linear-gradient(135deg, #0f2027, #203a43, #355a6d);
+    color: #f0f0f0;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 15px;
+  }
+
+  a {
+    color: #ffd55a;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #ffae42;
+  }
+
+  header {
+    text-align: center;
+    padding: 3rem 1rem 2rem 1rem;
+    max-width: 480px;
+    width: 100%;
+  }
+  header h1 {
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin-bottom: 0.2rem;
+    letter-spacing: 1px;
+  }
+  header p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0cc;
+  }
+  header .btn-primary {
+    background: #ffd55a;
+    color: #0f2027;
+    font-weight: 600;
+    padding: 0.85rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 213, 90, 0.5);
+    transition: background-color 0.3s ease;
+  }
+  header .btn-primary:hover {
+    background-color: #ffae42;
+  }
+
+  main {
+    max-width: 480px;
+    width: 100%;
+  }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  section h2 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #ffd55a;
+    padding-bottom: 6px;
+  }
+
+  /* About */
+  #about p {
+    font-weight: 300;
+    color: #dcdcdcdd;
+  }
+
+  /* Skills */
+  #skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  #skills .skill {
+    background: #203a43;
+    padding: 0.6rem 1.1rem;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    box-shadow: 0 2px 8px #0f2027dd;
+    user-select: none;
+    transition: background-color 0.3s ease;
+  }
+  #skills .skill:hover {
+    background-color: #2c5364;
+    box-shadow: 0 3px 10px #ffd55aaa;
+  }
+
+  /* Projects */
+  #projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  @media (max-width: 480px) {
+    #projects {
+      grid-template-columns: 1fr;
+    }
+  }
+  #projects .project-card {
+    background: #263e4bdd;
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 3px 10px #0008;
+    display: flex;
+    flex-direction: column;
+    height: 180px;
+  }
+  #projects .project-card h3 {
+    font-weight: 600;
+    color: #ffd55a;
+    margin-bottom: 0.4rem;
+    font-size: 1.1rem;
+  }
+  #projects .project-card p {
+    flex-grow: 1;
+    font-weight: 300;
+    color: #dcdcdccc;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  #projects .project-card a {
+    align-self: flex-start;
+    font-weight: 600;
+  }
+  #projects .project-card a:hover {
+    color: #ffae42;
+  }
+
+  /* Contact */
+  #contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  #contact label {
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  #contact input,
+  #contact textarea {
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    resize: vertical;
+  }
+  #contact input:focus,
+  #contact textarea:focus {
+    outline: 2px solid #ffd55a;
+    background-color: #2c5364;
+    color: #f0f0f0;
+  }
+  #contact textarea {
+    min-height: 90px;
+  }
+  #contact button {
+    background: #ffd55a;
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    color: #0f2027;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 213, 90, 0.6);
+    transition: background-color 0.3s ease;
+  }
+  #contact button:hover {
+    background-color: #ffae42;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: auto;
+    padding: 1rem 0;
+    font-size: 0.8rem;
+    color: #999999aa;
+    text-align: center;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  /* Scrollbar Styling for desktop */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1c3138;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #ffd55a;
+    border-radius: 20px;
+  }
+
+</style>
+</head>
+<body>
+  <header>
+    <h1>Rafael Santos</h1>
+    <p>Engenheiro de Software</p>
+    <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Entre em Contato</button>
+  </header>
+
+  <main>
+    <section id="about" aria-label="Sobre mim">
+      <h2>Sobre Mim</h2>
+      <p>Estudante do primeiro semestre de Engenharia de Software com foco em Engenharia de Dados e Programação. Dedico meu tempo ao aprendizado prático de Java e Python, além de desenvolver uma base sólida em lógica de programação com HTML5, CSS e JavaScript.</p>
+    </section>
+
+    <section id="skills" aria-label="Minhas habilidades">
+      <h2>Habilidades</h2>
+      <div class="skill">java</div>
+      <div class="skill">Python</div>
+      <div class="skill">SQL</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">CSS3</div>
+      <div class="skill">HTML5</div>
+      <div class="skill">Git</div>
+      
+    </section>
+
+    <section id="projects" aria-label="Projetos recentes">
+      <h2>Projetos</h2>
+      <article class="project-card">
+        <h3>Portfolio Pessoal</h3>
+        <p>Site responsivo para mostrar meus projetos e habilidades, feito com React e CSS moderno.</p>
+        <a href="#" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
+      </article>
+      <article class="project-card">
+        <h3>App ToDo</h3>
+        <p>Aplicação simples para gerenciamento de tarefas diárias construída com Angular e Firebase.</p>
+        <a href="#" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
+      </article>
+      <article class="project-card">
+        <h3>Landing Page</h3>
+        <p>Landing page promocional com design limpo e otimizado para conversões.</p>
+        <a href="#" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
+      </article>
+      <article class="project-card">
+        <h3>Blog Tech</h3>
+        <p>Blog focado em tecnologia e programação, desenvolvido usando Gatsby e Markdown.</p>
+        <a href="#" target="_blank" rel="noopener noreferrer">Ver Projeto</a>
+      </article>
+    </section>
+
+    <section id="contact" aria-label="Contato">
+      <h2>Contato</h2>
+      <form id="contactForm" onsubmit="submitForm(event)">
+        <label for="name">Nome</label>
+        <input type="text" id="name" name="name" placeholder="Seu nome" required minlength="2" />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required />
+
+        <label for="message">Mensagem</label>
+        <textarea id="message" name="message" placeholder="Escreva sua mensagem aqui..." required minlength="5"></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+      <p id="formMessage" style="margin-top:0.75rem;"></p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Rafael Santos - Todos os direitos reservados.
+  </footer>
+
+<script>
+  function submitForm(e) {
+    e.preventDefault();
+    const formMessage = document.getElementById('formMessage');
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    // Basic form validation
+    if (name.length < 2 || email.length === 0 || message.length < 5) {
+      formMessage.style.color = '#ff4c4c';
+      formMessage.textContent = 'Por favor, preencha todos os campos corretamente.';
+      return;
+    }
+
+    // Simulate form submission success message (No real backend)
+    formMessage.style.color = '#a3ff8f';
+    formMessage.textContent = 'Mensagem enviada com sucesso! Obrigado por entrar em contato.';
+
+    // Clear form fields
+    e.target.reset();
+  }
+</script>
+
+</body>
+</html>
+</content>
+</create_file>
